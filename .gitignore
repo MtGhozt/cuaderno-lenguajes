@@ -1,0 +1,13 @@
+# --- dependencias y temporales ---
+app/node_modules/
+*.log
+.vite/
+
+# --- sistema ---
+.DS_Store
+Thumbs.db
+
+# --- programa oficial: fuera del repo por decisión del dueño ---
+# (se quedan en disco, no se versionan)
+Programa_IC-4700.md
+public_IC-4700*.pdf
