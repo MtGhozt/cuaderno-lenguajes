@@ -36,4 +36,12 @@ export const FLASH = [
   { id: 'f34', u: 'u3', front: 'Call-by-name vs call-by-need [Guía Jorge]', back: 'Ambos postergan; name reevalúa cada uso, need memoiza en thunk (máx. 1 vez).' },
   { id: 'f35', u: 'u3', front: 'Condición TCO [Guía Jorge]', back: 'Llamada recursiva última, sin nada pendiente; si no, O(n) de pila.' },
   { id: 'f36', u: 'u4', front: 'Cláusula de Horn [Guía Jorge]', back: 'A lo sumo un literal positivo: A ← B1∧…∧Bn; base de la resolución SLD.' },
+  { id: 'f37', u: 'u1', front: 'Completo vs parcialmente computable [Apuntes Jorge]', back: 'Completo se detiene con cualquier entrada; parcial solo con entrada válida (si no, diverge).' },
+  { id: 'f38', u: 'u1', front: '4 reglas del procedimiento efectivo [Apuntes Jorge]', back: 'Tareas finitas no ambiguas; recursos finitos; determinista; sin ingenio ni magia.' },
+  { id: 'f39', u: 'u1', front: 'Lambda vs Turing [Apuntes Jorge]', back: 'Lambda: funciones por sustitución (funcionales). Turing: cinta/estados hasta halt (imperativos).' },
+  { id: 'f40', u: 'u1', front: 'Timeline: Fortran/Lisp/COBOL/Prolog/C [Apuntes Jorge]', back: 'Fortran 54 imperativo; Lisp 58 funcional; COBOL 59 negocios; Prolog 70 lógica; C 72 UNIX.' },
+  { id: 'f41', u: 'u2', front: 'Binding estático vs dinámico [Apuntes Jorge]', back: 'Estático: tipo fijo (Java compilado). Dinámico: tipo revisado cada uso (Python).' },
+  { id: 'f42', u: 'u2', front: 'Qué mató a los imperativos [Apuntes Jorge]', back: 'No unir definición de estructura con sus algoritmos. De ahí la OO.' },
+  { id: 'f43', u: 'u3', front: 'Proy/Cond [Apuntes Jorge]', back: 'Proy(k,…) = k-ésimo. Cond(t,a,b) = si t → a, si no → b.' },
+  { id: 'f44', u: 'u4', front: 'Variable lógica con hermanos [Apuntes Jorge]', back: 'hermano(David,X) liga Juan y luego Pedro: incógnita con múltiples valores.' },
 ];

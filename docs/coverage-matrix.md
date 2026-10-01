@@ -6,7 +6,7 @@ Leyenda de estado: ✅ respaldado · ⚠️ parcial · ❌ sin fuente · — fue
 
 | Tema programa | Fuentes | Conceptos | Ejemplos | Actividades | Estado |
 |---|---|---|---|---|---|
-| 1.1 Evolución histórica | transcr. u1 (timeline), [Notion] | eras, abstracción creciente | timeline EN [ILEGIBLE parcial] | quiz, flashcards | ⚠️ |
+| 1.1 Evolución histórica | transcr. u1 (timeline), [Notion], Apuntes Jorge (timeline Fortran→Perl + Rol CR) | eras, abstracción creciente | timeline completo | quiz q60, flashcards | ✅ |
 | 1.2 Principios de diseño | slides, cuaderno p2 (Wirth), [Notion] | universalidad, implementabilidad, naturalidad, no-ambigüedad, eficiencia, depurabilidad, seguridad | dangling else, r=m*i+s | quiz, V/F, completar | ✅ |
 | 1.3 Sintaxis, semántica, pragmática | slides, [Notion S4C1] | gramática LC; comportamiento; uso | asignación (4 usos), while Pascal | quiz, identificar | ✅ |
 | 1.4–1.10 Fundamentos (valores, tipos, expresiones, binding, abstracción, encapsulación, secuenciadores) | cuaderno p2, [Notion Resumen] | simples/compuestos, scope, binding time | tabla producto cartesiano, IEEE 754 | quiz, relacionar | ⚠️ (binding/alcance: solo base) |

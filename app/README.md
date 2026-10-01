@@ -31,9 +31,9 @@ src/
   styles.css         # sistema visual "cuaderno editorial" (offline, sin fuentes externas)
   data/
     content.js       # aula: 3 unidades × secciones (respaldo en docs/units/)
-    quiz.js          # 55 preguntas con explicación y referencia
-    flashcards.js    # 36 tarjetas
-    glossary.js      # 46 términos
+    quiz.js          # 65 preguntas con explicación y referencia
+    flashcards.js    # 44 tarjetas
+    glossary.js      # 55 términos
   lib/
     store.js         # progreso honesto en localStorage
     lab.js           # evaluador prefijo real + trazador eager/orden-normal

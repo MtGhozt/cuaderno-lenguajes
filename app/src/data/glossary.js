@@ -46,4 +46,11 @@ export const GLOSSARY = [
   { t: 'Cláusula de Horn [Guía Jorge]', d: 'A lo sumo un literal positivo; base de Prolog y la resolución SLD.', u: 'u4' },
   { t: 'Acoplamiento (coupling)', d: 'Qué tan enlazados están dos módulos; se busca bajo.', u: 'u1' },
   { t: 'Cohesión', d: 'Coherencia semántica interna de un módulo; se busca alta.', u: 'u1' },
+  { t: 'Problema computable completo [Apuntes Jorge]', d: 'Existe algoritmo que para cualquier entrada calcula y se detiene.', u: 'u1' },
+  { t: 'Problema parcialmente computable [Apuntes Jorge]', d: 'Solo garantiza detenerse con entrada válida; si no, diverge.', u: 'u1' },
+  { t: 'Máquina de Turing [Apuntes Jorge]', d: 'Lector sobre cinta con estados y reglas hasta halt; base imperativa.', u: 'u1' },
+  { t: 'BCD / Comp-2 [Apuntes Jorge]', d: 'Tipos simples por hardware: decimal codificado y enteros complemento a 2.', u: 'u1' },
+  { t: 'Binding estático / dinámico [Apuntes Jorge]', d: 'Tipo fijo en compilación (Java) vs revisado en cada uso (Python).', u: 'u2' },
+  { t: 'Proy / Cond [Apuntes Jorge]', d: 'Proyección del k-ésimo y condicional funcional para definir MCD y el if.', u: 'u3' },
+  { t: 'Variable lógica incógnita [Apuntes Jorge]', d: 'Placeholder que el motor llena con valores que hacen verdadera la sentencia.', u: 'u4' },
 ];

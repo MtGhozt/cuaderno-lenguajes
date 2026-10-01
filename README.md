@@ -18,7 +18,7 @@ instalación. Funciona offline.
 > progreso persiste siempre.
 
 La app incluye: aula por unidad, laboratorio (evaluador prefijo + trazador),
-práctica con 55 preguntas (las opciones **se mezclan en cada visita**, la letra
+práctica con 65 preguntas (las opciones **se mezclan en cada visita**, la letra
 correcta varía), examen simulado de 10, repaso de falladas y glosario.
 
 ## Cómo agregar materia de una clase

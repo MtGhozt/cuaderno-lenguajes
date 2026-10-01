@@ -33,7 +33,7 @@ check('aula u2 secciones', $$('.main h2').length >= 8);
 
 location.hash = '#/practica/u2';
 dispatchEvent(new Event('hashchange'));
-check('practica u2 13 preguntas', $$('#qlist article').length === 13);
+check('practica u2 13 preguntas', $$('#qlist article').length === 15);
 {
   document.querySelector('#q-q33 button.opt[data-i="1"]').click();
   check('q33 u2 ok', !!$('#fb-q33 .feedback.ok'));
@@ -87,7 +87,7 @@ check('diagramas 4 svg', $$('.main svg').length === 4);
 
 location.hash = '#/practica';
 dispatchEvent(new Event('hashchange'));
-check('practica total 55', $$('#qlist article').length === 55);
+check('practica total 55', $$('#qlist article').length === 65);
 // la mezcla visual debe variar entre dos visitas (data-i conserva el índice original)
 const orderOnce = $$('#qlist article').map(a => { const b = a.querySelector('button.opt'); return b ? b.dataset.i : '-'; }).join(',');
 dispatchEvent(new Event('hashchange'));
