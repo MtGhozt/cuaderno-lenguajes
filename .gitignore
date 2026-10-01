@@ -11,3 +11,10 @@ Thumbs.db
 # (se quedan en disco, no se versionan)
 Programa_IC-4700.md
 public_IC-4700*.pdf
+
+# --- materia cruda I Parcial: fuera del repo por decisión del dueño ---
+# (se quedan en disco, no se versionan; lo valioso ya está curado en
+#  app/src/data/ + docs/units/ + Guía Jorge/)
+I Parcial/
+*.docx
+Apuntes*.pdf

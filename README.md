@@ -44,8 +44,8 @@ docs/
 app/
   dist/index.html    ← archivo portable para estudiar (doble clic)
   src/data/          ← contenido, quiz, flashcards, glosario
-I Parcial/           ← materia cruda (no se edita, solo se referencia)
-Guía Jorge/          ← material de compañero (fuente secundaria)
+I Parcial/           ← materia cruda EN DISCO (no se versiona; ver .gitignore)
+Guía Jorge/          ← material de compañero (fuente secundaria versionada)
 ```
 
 El programa oficial del curso no se versiona (queda en disco, fuera del repo).
