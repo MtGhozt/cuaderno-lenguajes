@@ -3,6 +3,7 @@ import { UNITS } from './data/content.js';
 import { QUIZ } from './data/quiz.js';
 import { FLASH } from './data/flashcards.js';
 import { GLOSSARY } from './data/glossary.js';
+import { PAPERS } from './data/papers.js';
 import { store } from './lib/store.js';
 import { newEnv, evaluate, traceSqr, traceCand } from './lib/lab.js';
 
@@ -30,6 +31,11 @@ function md(src) {
     if (fence && !inPre) { inPre = true; preLang = fence[1]; i++; continue; }
     if (/^```/.test(ln) && inPre) { inPre = false; flushPre(); i++; continue; }
     if (inPre) { preBuf.push(ln); i++; continue; }
+    const head = ln.match(/^(#{2,3})\s+(.*)$/);
+    if (head) {
+      const tag = head[1].length === 2 ? 'h2' : 'h3';
+      html += '<' + tag + '>' + inline(head[2]) + '</' + tag + '>'; i++; continue;
+    }
     if (/^\|.*\|$/.test(ln.trim())) {
       const rows = [];
       while (i < lines.length && /^\|.*\|$/.test(lines[i].trim())) { rows.push(lines[i].trim()); i++; }
@@ -55,6 +61,7 @@ const NAV = [
   ['#/aula/u1', 'U1 · Fundamentos'], ['#/aula/u2', 'U2 · Imperativo'], ['#/aula/u3', 'U3 · Funcional'], ['#/aula/u4', 'U4 · Lógico'],
   ['#/lab', 'Laboratorio'],
   ['#/diagramas', 'Diagramas'],
+  ['#/papers', 'Papers'],
   ['sep', 'Evaluación'],
   ['#/practica', 'Práctica'], ['#/examen', 'Examen simulado'], ['#/repaso', 'Repaso'], ['#/glosario', 'Glosario'],
 ];
@@ -240,6 +247,29 @@ function vDiagrams() {
     + '<h2>2 · Estrategias de evaluación</h2>' + d2
     + '<h2>3 · Listas como cons</h2>' + d3
     + '<h2>4 · Collatz</h2>' + d4);
+}
+
+/* ---------- papers del primer examen ---------- */
+function vPapers() {
+  const cards = PAPERS.map(p =>
+    '<a class="unitlink" href="#/papers/' + p.id + '"><h3>' + esc(p.title) + '</h3>'
+    + '<p>' + esc(p.meta) + '</p></a>').join('');
+  shell('#/papers', '<p class="kicker">Lecturas obligatorias</p><h1>Papers del primer examen</h1>'
+    + '<p class="lede">Los 4 papers de la carpeta del primer parcial, cada uno con el mismo formato: idea central y partes, matices, borrador de respuesta en 3 párrafos listo para entregar, y repaso activo. Archivos fuente en <code>I Parcial/Papers del primer examen/</code>.</p>'
+    + '<div class="grid2">' + cards + '</div>');
+}
+function vPaper(id) {
+  const p = PAPERS.find(x => x.id === id) || PAPERS[0];
+  const idx = PAPERS.map(x => '<li><a href="#/papers/' + x.id + '">' + esc(x.nav) + '</a></li>').join('');
+  const repaso = p.repaso.map((r, i) =>
+    '<p><strong>' + (i + 1) + '. ' + esc(r.q) + '</strong><br><span class="meta">' + esc(r.a) + '</span></p>').join('');
+  shell('#/papers', '<p class="kicker"><a href="#/papers">Papers</a> · ' + esc(p.nav) + '</p><h1>' + esc(p.title) + '</h1>'
+    + '<p class="meta">' + esc(p.meta) + '</p>'
+    + '<h2>Índice de papers</h2><ul>' + idx + '</ul>'
+    + '<h2>Resumen (idea central, partes y matices)</h2>' + md(p.resumen)
+    + (p.estudio ? '<h2>Explicación completa paso a paso</h2>' + md(p.estudio) : '')
+    + '<h2>Repaso activo</h2>' + repaso
+    + '<div class="btnrow"><a class="btn" href="#/papers" style="text-decoration:none">Volver a papers</a></div>');
 }
 
 /* ---------- preguntas ---------- */
@@ -480,6 +510,7 @@ function route() {
   if (path === 'aula') return vStudy(arg || 'u1');
   if (path === 'lab') return vLab();
   if (path === 'diagramas') return vDiagrams();
+  if (path === 'papers') return arg ? vPaper(arg) : vPapers();
   if (path === 'practica') return vPractice(arg || null);
   if (path === 'examen') return vExam();
   if (path === 'repaso') return vReview();

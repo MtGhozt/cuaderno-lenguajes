@@ -118,7 +118,7 @@ input[type="text"], textarea, select {
 textarea { min-height: 110px; font-family: var(--mono); font-size: 0.88rem; }
 label { font-size: 0.9rem; font-weight: 600; display: block; margin: 0.9rem 0 0.3rem; }
 .grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0.9rem; max-width: calc(var(--measure) + 8rem); }
-.unitlink { border: 1px solid var(--rule); background: var(--paper-2); padding: 1rem 1.1rem; border-radius: var(--radius); text-decoration: none; color: inherit; display: block; }
+.unitlink { border: 1px solid var(--rule); background: var(--paper-2); padding: 1rem 1.1rem; border-radius: var(--radius); text-decoration: none; color: inherit; display: block; min-width: 0; overflow-wrap: break-word; }
 .unitlink:hover { border-color: var(--accent-ink); }
 .unitlink h3 { margin: 0 0 0.3rem; }
 .unitlink p { margin: 0.2rem 0 0.6rem; font-size: 0.9rem; color: var(--ink-soft); }
