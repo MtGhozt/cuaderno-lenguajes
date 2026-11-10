@@ -44,4 +44,11 @@ export const FLASH = [
   { id: 'f42', u: 'u2', front: 'Qué mató a los imperativos [Apuntes Jorge]', back: 'No unir definición de estructura con sus algoritmos. De ahí la OO.' },
   { id: 'f43', u: 'u3', front: 'Proy/Cond [Apuntes Jorge]', back: 'Proy(k,…) = k-ésimo. Cond(t,a,b) = si t → a, si no → b.' },
   { id: 'f44', u: 'u4', front: 'Variable lógica con hermanos [Apuntes Jorge]', back: 'hermano(David,X) liga Juan y luego Pedro: incógnita con múltiples valores.' },
+  { id: 'f45', u: 'u4', front: 'Dominios en Tres Amigas [Guía Jorge]', back: 'Listas finitas (apellidos/profesiones) + permutation/2 sobre variables A1..P3.' },
+  { id: 'f46', u: 'u4', front: 'Unificación operativa (Tres Amigas)', back: 'member(amiga(_, lopez, ingeniera), Amigas) encaja términos ligando variables.' },
+  { id: 'f47', u: 'u4', front: 'Corte (!) / fail', back: '[VACÍO: sin fuente] — pendiente transcripciones Exam 2.' },
+  { id: 'f48', u: 'u5', front: 'Objeto + mensaje (Smalltalk)', back: 'Todo es objeto; 3+4 = mensaje + con arg 4 al receptor 3.' },
+  { id: 'f49', u: 'u5', front: 'Simula 67', back: 'Clases, objetos, herencia, métodos virtuales; nacimiento formal de OO.' },
+  { id: 'f50', u: 'u5', front: 'Diseño por Contrato (Eiffel)', back: 'require / ensure / invariant (pre, post, invariantes de clase).' },
+  { id: 'f51', u: 'u5', front: 'Java vs herencia múltiple', back: 'Sin herencia múltiple de implementación; sí múltiples interfaces.' },
 ];

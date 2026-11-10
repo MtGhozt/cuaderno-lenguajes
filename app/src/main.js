@@ -6,6 +6,10 @@ import { GLOSSARY } from './data/glossary.js';
 import { PAPERS } from './data/papers.js';
 import { store } from './lib/store.js';
 import { newEnv, evaluate, traceSqr, traceCand } from './lib/lab.js';
+import {
+  E2_NAV, vExam2Home, vPath, vLesson, vLabs, vE2Practice, vCheats, vE2Glossary, vE2Flash,
+} from './exam2-views.js';
+
 
 const app = document.getElementById('app');
 const labEnv = newEnv();
@@ -57,23 +61,55 @@ function md(src) {
 
 const NAV = [
   ['#/', 'Inicio'], ['#/programa', 'Programa'],
-  ['sep', 'Estudio'],
-  ['#/aula/u1', 'U1 · Fundamentos'], ['#/aula/u2', 'U2 · Imperativo'], ['#/aula/u3', 'U3 · Funcional'], ['#/aula/u4', 'U4 · Lógico'],
+  ...E2_NAV,
+  ['sep', 'I Parcial'],
+  ['#/aula/u1', 'U1 · Fundamentos'], ['#/aula/u2', 'U2 · Imperativo'], ['#/aula/u3', 'U3 · Funcional'], ['#/aula/u4', 'U4 · Lógico'], ['#/aula/u5', 'U5 · OO'],
   ['#/lab', 'Laboratorio'],
   ['#/diagramas', 'Diagramas'],
   ['#/papers', 'Papers'],
   ['sep', 'Evaluación'],
   ['#/practica', 'Práctica'], ['#/examen', 'Examen simulado'], ['#/repaso', 'Repaso'], ['#/glosario', 'Glosario'],
 ];
+
+function themeInit() {
+  const t = localStorage.getItem('ic4700-theme') || 'light';
+  document.documentElement.dataset.theme = t;
+  return t;
+}
+themeInit();
+
 function shell(active, content) {
+  const theme = document.documentElement.dataset.theme || 'light';
+  // Conservar scroll del menú lateral: al re-renderizar el aside, el navegador
+  // lo resetea a 0 y “te teletransporta” arriba (bug reportado al navegar).
+  const prevAside = app.querySelector('.sidebar');
+  const asideScroll = prevAside ? prevAside.scrollTop : 0;
   const nav = NAV.map(([href, label]) => href === 'sep'
-    ? '<div class="sep">' + label + '</div>'
-    : '<a href="' + href + '" class="' + (href === active ? 'active' : '') + '">' + label + '</a>').join('');
+    ? '<div class="sep" role="presentation">' + label + '</div>'
+    : '<a href="' + href + '" class="' + (href === active || active.startsWith(href + '/') ? 'active' : '') + '"'
+      + (href === active || active.startsWith(href + '/') ? ' aria-current="page"' : '') + '>' + label + '</a>').join('');
   app.innerHTML = '<a class="skip" href="#main">Saltar al contenido</a><div class="layout">'
-    + '<aside class="sidebar"><p class="brand">Cuaderno de Lenguajes<small>IC-4700 · I Parcial</small></p>'
+    + '<aside class="sidebar" id="sidebar"><p class="brand">Cuaderno de Lenguajes<small>IC-4700 · Exam 2</small></p>'
+    + '<button type="button" class="btn theme-btn" id="themebtn" aria-pressed="' + (theme === 'dark' ? 'true' : 'false') + '">'
+    + (theme === 'dark' ? 'Tema claro' : 'Tema oscuro') + '</button>'
     + '<nav class="nav" aria-label="Principal">' + nav + '</nav></aside>'
-    + '<main class="main" id="main">' + content + '</main></div>';
-  window.scrollTo(0, 0);
+    + '<main class="main" id="main" tabindex="-1">' + content + '</main></div>';
+  const aside = document.getElementById('sidebar');
+  if (aside) aside.scrollTop = asideScroll;
+  const tb = document.getElementById('themebtn');
+  if (tb) tb.onclick = () => {
+    const next = (document.documentElement.dataset.theme === 'dark') ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem('ic4700-theme', next);
+    route();
+  };
+  // Solo el contenido principal vuelve arriba; el aside conserva su posición.
+  const main = document.getElementById('main');
+  if (main) main.scrollTop = 0;
+  // En móvil el layout deja de ser viewport fijo: ahí sí reseteamos window.
+  if (window.matchMedia && window.matchMedia('(max-width: 760px)').matches) {
+    window.scrollTo(0, 0);
+  }
 }
 
 /* Evita el salto brusco hacia arriba al responder: si el navegador mueve el
@@ -109,9 +145,12 @@ function vHome() {
       + '<div class="progress-line"><span style="width:' + (qs.length ? Math.round(done / qs.length * 100) : 0) + '%"></span></div></a>';
   }).join('');
   shell('#/', '<p class="kicker">IC-4700 · Lenguajes de Programación</p><h1>Estudia el parcial, no solo léelo</h1>'
-    + '<p class="lede">Cuatro unidades (fundamentos, imperativo, funcional, lógico) con aula, laboratorio real de notación prefija, práctica con retroalimentación y examen simulado. Tu progreso se guarda en este navegador.</p>'
-    + '<div class="btnrow"><a class="btn primary" href="#/aula/' + resume + '" style="text-decoration:none">Continuar estudiando</a>'
-    + '<a class="btn" href="#/practica" style="text-decoration:none">Ir a práctica</a></div>'
+    + '<p class="lede">Exam 2: paradigma lógico (Clases 1–6) y OO (Clase 7) con labs interactivos. El I Parcial sigue disponible abajo.</p>'
+    + '<div class="btnrow"><a class="btn primary" href="#/exam2" style="text-decoration:none">Abrir Exam 2</a>'
+    + '<a class="btn" href="#/ruta/rapida" style="text-decoration:none">Repaso 20 min</a>'
+    + '<a class="btn" href="#/aula/' + resume + '" style="text-decoration:none">Continuar I Parcial</a>'
+    + '<a class="btn" href="#/practica" style="text-decoration:none">Práctica I Parcial</a></div>'
+
     + '<h2>Progreso general</h2><p class="meta">Preguntas dominadas ' + s.mastered + ' · respondidas ' + s.answered + ' · intentos ' + s.tries
     + ' · tarjetas vistas ' + s.flashSeen + '/' + FLASH.length + ' · exámenes ' + s.exams + '</p>'
     + '<h2>Unidades</h2><div class="grid2">' + units + '</div>'
@@ -124,12 +163,13 @@ function vProgram() {
     ['1. Introducción y conceptos fundamentales', 'Completa', '#/aula/u1'],
     ['2. Programación imperativa (COBOL, Pascal, C)', 'Completa', '#/aula/u2'],
     ['3. Programación funcional (Scheme, Haskell)', 'Completa', '#/aula/u3'],
-    ['4. Programación lógica (Prolog)', 'Parcial: falta sintaxis, unificación paso a paso, corte/fail', '#/aula/u4'],
-    ['5. Programación orientada a objetos', 'Fuera de alcance', null],
-    ['6. Elementos avanzados', 'Fuera de alcance', null],
+    ['4. Programación lógica (Prolog)', 'Parcial: corte/fail [VACÍO]; Tres Amigas OK', '#/aula/u4'],
+    ['5. Programación orientada a objetos', 'Scaffold Exam 2 (Guía Jorge; faltan clases)', '#/aula/u5'],
+    ['6. Elementos avanzados', 'Fuera de alcance inmediato', null],
   ].map(r => '<tr><td>' + r[0] + '</td><td>' + r[1] + '</td><td>' + (r[2] ? '<a href="' + r[2] + '">Estudiar</a>' : '—') + '</td></tr>').join('');
   shell('#/programa', '<p class="kicker">Programa oficial</p><h1>Programa del curso</h1>'
-    + '<p class="lede">IC-4700 · 4 créditos · Prof. Jorge A. Vargas · Parcial 1: 24 de septiembre de 2026. Evaluación: parciales 50%, tareas 10%, proyectos 40%.</p>'
+    + '<p class="lede">IC-4700 · 4 créditos · Prof. Jorge A. Vargas · Parcial 1: 24 sep 2026 · Parcial 2: 19 nov 2026. Evaluación: parciales 50%, tareas 10%, proyectos 40%.</p>'
+
     + '<h2>Cobertura en esta plataforma</h2><table><thead><tr><th>Unidad</th><th>Estado</th><th></th></tr></thead><tbody>' + rows + '</tbody></table>'
     + '<p class="marginal">Las marcas [POR-VERIFICAR] y [VACÍO] del material fuente se conservan en el aula: lo dudoso se señala, no se oculta.</p>');
 }
@@ -397,7 +437,8 @@ function vPractice(unit) {
 
 function vExam() {
   shell('#/examen', '<p class="kicker">Evaluación</p><h1>Examen simulado</h1>'
-    + '<p class="lede">10 preguntas mezcladas de las cuatro unidades, sin retroalimentación hasta el final. Como un parcial real.</p>'
+    + '<p class="lede">10 preguntas mezcladas de las unidades cargadas (U1–U5), sin retroalimentación hasta el final. Como un parcial real.</p>'
+
     + '<div class="btnrow"><button type="button" class="btn primary" id="start">Comenzar (10 preguntas)</button></div><div id="exam"></div>');
   document.getElementById('start').onclick = () => {
     const pool = [...QUIZ].sort(() => Math.random() - 0.5).slice(0, 10);
@@ -504,9 +545,17 @@ function vGlossary() {
 /* ---------- router ---------- */
 function route() {
   const h = location.hash || '#/';
-  const [, path, arg] = h.match(/^#\/(\w*)(?:\/(\w+))?/) || [];
+  const [, path, arg] = h.match(/^#\/([\w-]*)(?:\/([\w-]+))?/) || [];
   if (path === '' ) return vHome();
   if (path === 'programa') return vProgram();
+  if (path === 'exam2') return vExam2Home(shell);
+  if (path === 'ruta') return vPath(shell, arg || 'rapida');
+  if (path === 'leccion') return vLesson(shell, arg || 'l1');
+  if (path === 'labs') return vLabs(shell);
+  if (path === 'e2-practica') return vE2Practice(shell);
+  if (path === 'e2-glosario') return vE2Glossary(shell);
+  if (path === 'e2-flash') return vE2Flash(shell);
+  if (path === 'cheats') return vCheats(shell);
   if (path === 'aula') return vStudy(arg || 'u1');
   if (path === 'lab') return vLab();
   if (path === 'diagramas') return vDiagrams();

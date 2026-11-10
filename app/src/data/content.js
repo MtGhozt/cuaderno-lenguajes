@@ -100,7 +100,7 @@ Los 4 paradigmas del curso:
 - **Imperativo/procedimental**: tareas como ejecución de instrucciones (órdenes).
 - **Funcional**: tareas como evaluación de funciones.
 - **Lógico**: tareas como evaluación de predicados de verdad.
-- **Orientado a objetos**: ~ (II Parcial).` },
+- **Orientado a objetos**: scaffold en U5 (Exam 2; Guía Jorge + pendientes de clase).` },
       { h: 'Características obligatorias y deseables [Apuntes Jorge]', body:
 `**Obligatorias:**
 
@@ -391,6 +391,9 @@ paresHailstone n = filter even (hailstoneSeq n)
       'Describir la ejecución como demostración.',
       'Explicar el sistema de Copi y sus alternativas.',
       'Contrastar variable lógica e imperativa.',
+      'Modelar dominios con listas y compuestos (Tres Amigas).',
+      'Explicar unificación operativa y backtracking.',
+      '[VACÍO] Corte (!) y fail — pendiente Exam 2.',
     ],
     sections: [
       { h: 'La idea: sentencias que se demuestran', body:
@@ -432,31 +435,106 @@ El motor busca los valores de X que hacen verdadera la sentencia. Una variable p
 - (opcional) 4 reglas de igualdad
 
 Pero es **muy poco práctico** para una computadora [POR-VERIFICAR: "los algoritmos con Copi son NP"].` },
-      { h: 'Alternativas prácticas', body:
+      { h: 'Alternativas prácticas: resolución y unificación', body:
 `Dos familias con menos reglas y menos operadores [POR-VERIFICAR: "con restricciones son de tipo P"]:
 
 - **Modus ponens**: dos operadores y una sola regla (MP).
 - **Cálculo de cláusulas**: sin operadores y una sola regla, la **resolución con unificación**.
 
-La **unificación** hace encajar dos términos ligando variables: es el corazón del paradigma. El **backtracking** prueba una rama, falla y retrocede a la siguiente. Corte (\`!\`) y \`fail\`: [VACÍO: sin fuente en el material].` },
-      { h: 'Cláusulas de Horn y Tres Amigas [Guía Jorge]', body:
-`Prolog restringe a **Cláusulas de Horn** (a lo sumo un literal positivo: \`A ← B1 ∧ … ∧ Bn\`); la **resolución SLD** busca eficiente con unificación y retroceso. [Simplificación de la guía.]
+La **unificación** hace encajar dos términos ligando variables: es el corazón del paradigma. El **backtracking** prueba una rama, falla y retrocede a la siguiente.
 
-El acertijo Tres Amigas (Beatriz/María/Alicia; García/López/Méndez; ingeniera/actriz/maestra) se modela así:
+Prolog restringe a **Cláusulas de Horn** (a lo sumo un literal positivo: \`A ← B1 ∧ … ∧ Bn\`); la **resolución SLD** busca eficiente con unificación y retroceso. [Simplificación Guía Jorge S4C1.]
 
-\`\`\`prolog
-amiga(beatriz, A1, P1)
-Apellidos = [garcia, lopez, mendez]
-A1 \\= garcia
-member(amiga(_, lopez, ingeniera), Amigas)
-member(amiga(maria, _, actriz), Amigas)
-\\+ member(amiga(_, mendez, maestra), Amigas)
+Corte (\`!\`) y \`fail\`: [VACÍO: sin fuente — pendiente transcripciones Exam 2].` },
+      { h: 'Dominios, compuestos y listas [Guía Jorge]', body:
+`Dominio (clase): individuos para los que un predicado es verdadero. En Tres Amigas se materializan como **listas finitas** y se asignan con \`permutation/2\`:
+
+- Apellidos = \`[garcia, lopez, mendez]\`
+- Profesiones = \`[ingeniera, actriz, maestra]\`
+- Compuesto: \`amiga(Nombre, Apellido, Profesion)\`
+
+Así el programa declara el universo de discurso antes de imponer restricciones.` },
+      { h: 'Tres Amigas en Prolog: unificación y backtracking', body:
+`\`\`\`prolog
+resolver(Amigas) :-
+    Amigas = [
+        amiga(beatriz, A1, P1),
+        amiga(maria,   A2, P2),
+        amiga(alicia,  A3, P3)
+    ],
+    Apellidos = [garcia, lopez, mendez],
+    permutation(Apellidos, [A1, A2, A3]),
+    Profesiones = [ingeniera, actriz, maestra],
+    permutation(Profesiones, [P1, P2, P3]),
+    A1 \\= garcia,
+    member(amiga(_, lopez, ingeniera), Amigas),
+    member(amiga(maria, _, actriz), Amigas),
+    \\+ member(amiga(_, mendez, maestra), Amigas).
 % Res = Beatriz López ingeniera, María Méndez actriz, Alicia García maestra.
 \`\`\`
 
-Con una restricción contradictoria, el backtracking agota ramas y responde **false**.` },
+**Unificación operativa:** \`member(amiga(_, lopez, ingeniera), Amigas)\` hace encajar un término de la lista ligando la amiga cuyo apellido es López. \`\\=\` exige desigualdad.
+
+**Backtracking:** si se agrega una restricción contradictoria (p. ej. «Beatriz es maestra»), el motor agota todas las permutaciones y responde **false**. [Guía Jorge S4C2]` },
       { h: 'Typeclasses frente a herencia [Guía Jorge]', body:
-`Java: polimorfismo por **subtipado y herencia** (class Perro extends Animal). Haskell: sin objetos ni herencia; las **typeclasses** son contratos donde cualquier tipo se adhiere sin modificar su definición (polimorfismo ad-hoc desacoplado).` },
+`Puente hacia U5: Java usa polimorfismo por **subtipado y herencia** (\`class Perro extends Animal\`). Haskell: sin objetos ni herencia; las **typeclasses** son contratos donde cualquier tipo se adhiere sin modificar su definición (polimorfismo ad-hoc desacoplado).` },
+    ],
+  },
+  {
+    id: 'u5', num: 'Unidad 5', title: 'Orientación a objetos (scaffold Exam 2)',
+    objectives: [
+      'Explicar objeto + mensaje como unidad de abstracción.',
+      'Contrastar Simula (clases) vs Smalltalk (todo es objeto).',
+      'Describir herencia, polimorfismo e interfaces (Java).',
+      'Enunciar Diseño por Contrato (Eiffel).',
+      '[VACÍO] Colecciones, bloques en cascada, detalle de clase — pendiente transcripciones.',
+    ],
+    sections: [
+      { h: 'La idea: objetos y mensajes', body:
+`En OO la unidad básica es el **objeto** (estado + comportamiento). El control fluye por **paso de mensajes** y despacho dinámico (polimorfismo), no por una secuencia global de órdenes sueltas.
+
+El estado es **encapsulado**: se manipula vía la interfaz pública del objeto. Fundamento citado en clase (Guía Jorge): tipos abstractos de datos + actores.
+
+Scaffold Exam 2: material sembrado desde **Guía Jorge** (fuente secundaria). Detalle de pizarra/clase: pendiente de tus transcripciones.` },
+      { h: 'Simula 67: nacimiento formal de OO', body:
+`**Simula 67** (Dahl & Nygaard) introduce:
+
+- **Clases** como plantillas e **objetos** como instancias en el heap
+- **Subclases y herencia**
+- Métodos virtuales / polimorfismo dinámico
+- Corrutinas (\`detach\` / \`resume\`) precursoras de generadores
+
+Nació para simulación de eventos discretos (barcos, colas, tráfico). [Guía Jorge S4C1]` },
+      { h: 'Smalltalk: todo es un objeto', body:
+`**Smalltalk** (Kay / Ingalls / Goldberg) lleva la pureza al extremo: enteros, bloques y clases son objetos.
+
+\`\`\`smalltalk
+3 + 4   "mensaje '+' con argumento 4 al receptor 3"
+(x > 0) ifTrue: [ y := 1 ] ifFalse: [ y := -1 ]
+\`\`\`
+
+No hay «instrucción if» del lenguaje: son mensajes a booleanos. [Guía Jorge S4C1]` },
+      { h: 'Self, Eiffel y CLOS (variantes)', body:
+`- **Self:** prototipos (sin molde clase/instancia); **slots** nombre-valor; **delegación** al parent.
+- **Eiffel — Diseño por Contrato:** \`require\` (pre), \`ensure\` (post), \`invariant\` (clase). **CQS:** comando o consulta, no ambos.
+- **CLOS:** multimétodos (despacho según **todos** los argumentos) + MOP.
+
+[Guía Jorge S4C2]` },
+      { h: 'Java: clases, interfaces, JVM', body:
+`- Compila a **bytecode** sobre JVM («write once, run anywhere»).
+- Sin aritmética de punteros; GC; bounds checking.
+- Herencia de **implementación** simple; muchas **interfaces** (evita el diamante).
+
+Contraste con Haskell: typeclasses = contratos ad-hoc sin jerarquía de objetos. [Guía Jorge S4C2]` },
+      { h: 'Qué falta de las clases (honestidad)', body:
+`Del programa 5.x aún [VACÍO: sin fuente de clase]:
+
+- Variables de instancia vs de clase (detalle)
+- Colecciones
+- Bloques de código y mensajes en cascada
+- Estudio analítico profundo de Java / otros lenguajes del programa
+
+Cuando pegues las transcripciones en \`docs/clases/\`, se integran aquí y a quiz/flashcards.` },
     ],
   },
 ];
