@@ -3,8 +3,8 @@
 Cuaderno de estudio para todo el curso **IC-4700 Lenguajes de Programación**:
 apuntes por clase + plataforma web interactiva para practicar.
 
-**Estado:** I Parcial (U1 fundamentos, U2 imperativo, U3 funcional, U4 lógico).
-El II Parcial (U5 OO, U6 avanzados) aún no entra.
+**Estado:** **Exam 2 activo** (curriculum Clases 1–7: lógico + OO, labs, quizzes) + I Parcial (U1–U5) conservado.
+Outline: `docs/exam-2-curriculum.md`. Agregar Clase 8+: `docs/ADDING-CLASS.md`.
 
 ## Cómo estudiar (lo único que ocupas)
 
@@ -18,7 +18,7 @@ instalación. Funciona offline.
 > progreso persiste siempre.
 
 La app incluye: aula por unidad, laboratorio (evaluador prefijo + trazador),
-práctica con 65 preguntas (las opciones **se mezclan en cada visita**, la letra
+práctica con 73 preguntas (las opciones **se mezclan en cada visita**, la letra
 correcta varía), examen simulado de 10, repaso de falladas y glosario.
 
 ## Cómo agregar materia de una clase
@@ -38,7 +38,8 @@ Detalle del flujo en `docs/clases/README.md`. Convenciones de fidelidad
 README.md            ← este archivo
 docs/
   clases/            ← apuntes por sesión (puerta de entrada de materia nueva)
-  units/unit-01…04/  ← teoría integrada por unidad
+  units/unit-01…05/  ← teoría integrada por unidad (U5 = scaffold Exam 2)
+  exam-2-intake.md   ← checklist de espera de transcripciones Exam 2
   coverage-matrix.md ← qué tema está respaldado y con qué fuente
   transcripciones/   ← transcripciones fieles del material base
 app/
@@ -48,7 +49,7 @@ I Parcial/           ← materia cruda EN DISCO (no se versiona; ver .gitignore)
 Guía Jorge/          ← material de compañero (fuente secundaria versionada)
 ```
 
-El programa oficial del curso no se versiona (queda en disco, fuera del repo).
+El programa oficial del curso vive en el padre del repo (`../Programa_IC-4700.md`).
 
 ## Desarrollo (solo para modificar la app)
 

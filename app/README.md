@@ -31,8 +31,8 @@ src/
   styles.css         # sistema visual "cuaderno editorial" (offline, sin fuentes externas)
   data/
     content.js       # aula: 3 unidades × secciones (respaldo en docs/units/)
-    quiz.js          # 65 preguntas con explicación y referencia
-    flashcards.js    # 44 tarjetas
+    quiz.js          # 73 preguntas con explicación y referencia
+    flashcards.js    # 51 tarjetas
     glossary.js      # 55 términos
   lib/
     store.js         # progreso honesto en localStorage
@@ -58,8 +58,8 @@ smoke.mjs / css-stub.mjs  # prueba de humo con happy-dom
 
 ## Pendientes conocidos
 
-- U4: sintaxis Prolog, unificación paso a paso, backtracking, corte/fail
-  ([VACÍO] en `docs/coverage-matrix.md`).
+- U4: corte (`!`) y `fail` ([VACÍO]; Tres Amigas / dominios / backtracking ya sembrados).
+- U5: profundizar con transcripciones de clase (scaffold Guía Jorge listo).
 - Verificación visual manual en móvil (responsive implementado, sin captura).
 - Notion S4C2/S7C2 vacías (el estudiante las consigue).
 - Marcas [POR-VERIFICAR] en `docs/references/unresolved-issues.md`.
