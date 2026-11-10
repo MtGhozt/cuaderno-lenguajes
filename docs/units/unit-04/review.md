@@ -16,6 +16,8 @@
 8. Copi NP ⇒ alternativas MP y cláusulas/resolución+unificación, P con restricciones (IMG7) [POR-VERIFICAR].
 9. Límite `.docx` P1 («Turing completa no reconoce CP1») [POR-VERIFICAR].
 10. Problemas transversales: catenaria, tres amigas, raw/ascii (Problemas IMG1–IMG5).
+11. Tres Amigas en Prolog: dominios como listas, unificación con `member`/`\=`, backtracking → `false` [Guía Jorge S4C2].
+12. Corte (`!`) y `fail`: [VACÍO: sin fuente] — pendiente Exam 2.
 
 ## 2. Errores frecuentes
 
@@ -23,12 +25,12 @@
 
 1. Decir que el programa lógico «ejecuta instrucciones». **Corrección:** demuestra sentencias (IMG5 + `.docx` P2).
 2. Tratar la variable lógica como casilla RAM tipada. **Corrección:** existencia previa al tipo, ligadura revisable (`.docx` P3).
-3. Pedir «la sintaxis Prolog» a estos apuntes. **Corrección:** [VACÍO: sin fuente]; ir al manual.
+3. Ignorar el ejemplo Prolog de Tres Amigas. **Corrección:** hay sintaxis en Guía Jorge S4C2 (`examples.md` E7); no es el manual completo.
 4. Citar «Copi es NP / restringidos son P» como hecho. **Corrección:** [POR-VERIFICAR] (IMG7).
 5. Citar «Turing completa no reconoce CP1» como hecho. **Corrección:** [POR-VERIFICAR] (`.docx` P1).
 6. Confundir FBF con «función bien formada». **Corrección:** fórmulas bien formadas (`.docx` P4); definición formal [VACÍO: sin fuente].
-7. Creer que el corte/fail/unificación paso a paso están en el material. **Corrección:** [VACÍO: sin fuente].
-8. Resolver la catenaria como problema «lógico natural». **Corrección:** es funcional; lo lógico natural es tres amigas ([Explicación pedagógica — elaboración propia] sobre Problemas IMG1–IMG4).
+7. Inventar corte/fail. **Corrección:** [VACÍO: sin fuente]; esperar transcripciones Exam 2.
+8. Resolver la catenaria como problema «lógico natural». **Corrección:** es funcional; lo lógico natural es tres amigas.
 
 ## 3. Autoevaluación (8)
 
@@ -39,11 +41,11 @@
 5. **¿Por qué Copi no y qué alternativas propone el slide?** *Solución: poco práctico/NP [POR-VERIFICAR]; MP (2 ops/1 regla) y cláusulas (resolución+unificación), P con restricciones [POR-VERIFICAR] (IMG7).*
 6. **¿Qué es FBF y qué es dominio?** *Solución: fórmulas bien formadas (P4); individuos que hacen verdadero un predicado (P3).*
 7. **Clasifica los 3 problemas transversales por paradigma afín y justifica.** *Solución: catenaria→funcional/imperativo; tres amigas→lógico; raw/ascii→imperativo con lectura relacional (Problemas IMG1–IMG5 + elaboración pedagógica marcada).*
-8. **[VACÍO: sin fuente] ¿Qué harían el corte (`!`), `fail`, el backtracking y la unificación paso a paso?** *Solución: no respondible con estas fuentes; agenda de verificación con manual de Prolog.*
+8. **¿Qué hace Prolog si Tres Amigas queda insatisfacible?** *Solución: backtracking agota ramas → `false` [Guía Jorge S4C2]. Corte/fail siguen [VACÍO].*
 
 ## 4. Estado de verificación pendiente
 
 - [POR-VERIFICAR] «Copi NP / restringidos P» (IMG7) — verificar contra bibliografía de complejidad/prolog (cláusulas de Horn, SLD).
 - [POR-VERIFICAR] «Turing completa no reconoce CP1» (`.docx` P1) — verificar (decidibilidad vs. reconocibilidad; semidecidibilidad de CP1).
 - [POR-VERIFICAR] Transcripciones de imagen (todas las IMG) — cotejar contra slides originales.
-- [VACÍO: sin fuente] Sintaxis Prolog, unificación/backtracking/corte/fail paso a paso, FBF formal, compuestos/listas — completar con manual de Prolog y registrar fuente nueva cuando se incorpore.
+- [VACÍO: sin fuente] Corte (`!`) y `fail`; MGU formal — completar con transcripciones Exam 2 / manual de Prolog.

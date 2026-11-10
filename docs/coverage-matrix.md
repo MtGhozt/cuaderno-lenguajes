@@ -37,12 +37,22 @@ Leyenda de estado: ✅ respaldado · ⚠️ parcial · ❌ sin fuente · — fue
 
 | Tema programa | Fuentes | Conceptos | Ejemplos | Actividades | Estado |
 |---|---|---|---|---|---|
-| 4.1 Relaciones vs funciones | [Notion S8C1], slides | demostración vs evaluación | tabla imperativo/lógico | quiz | ✅ || 4.2 Hechos y consultas | slides, docx (4 párr.) | sentencias, FBF | — | conceptual | ⚠️ |
+| 4.1 Relaciones vs funciones | [Notion S8C1], slides | demostración vs evaluación | tabla imperativo/lógico | quiz | ✅ |
+| 4.2 Hechos y consultas | slides, docx + Guía Jorge S4C2 | sentencias, FBF, amiga/3 | Tres Amigas Prolog | quiz, código | ⚠️ |
 | 4.3 Cálculo de predicados | slides, [Notion] | CP1, Copi (9+10+4+2), MP, cláusulas | esquema abstracto | quiz, V/F | ✅ teoría |
-| 4.4 Dominios, compuestos, listas | programa (título) | — | — | — | ❌ |
-| 4.5 Unificación | [Notion] (definición) + Guía Jorge S4C2 (Tres Amigas en Prolog) | encaje por ligadura | amiga/3, member, \= | quiz, código | ⚠️ (un ejemplo real) |
+| 4.4 Dominios, compuestos, listas | .docx P3 + Guía Jorge S4C2 | dominio, listas, permutation | Apellidos/Profesiones | quiz | ⚠️ |
+| 4.5 Unificación | [Notion] + Guía Jorge S4C2 | encaje por ligadura | amiga/3, member, \= | quiz, código | ⚠️ (ejemplo real; MGU formal ❌) |
 | 4.6 Backtracking y orden | Guía Jorge S4C2 (agotamiento → false) | probar y retroceder | caso contradictorio | quiz | ⚠️ |
-| 4.7 Corte y fail | programa (título) | — | — | — | ❌ |
+| 4.7 Corte y fail | programa (título) | — | — | — | ❌ [VACÍO] |
+
+## U5 — Programación orientada a objetos (Exam 2 · scaffold)
+
+| Tema programa | Fuentes | Conceptos | Ejemplos | Actividades | Estado |
+|---|---|---|---|---|---|
+| 5.1 Objetos y mensajes | Guía Jorge S4C1 (Smalltalk) | mensaje a receptor | `3 + 4` Smalltalk | quiz | ⚠️ secundaria |
+| 5.3–5.6 Clases, herencia, polimorfismo | Guía Jorge S4C1 (Simula, Java) | clase/instancia, subclase, interfaces | Simula 67, Java | quiz | ⚠️ secundaria |
+| 5.8 Principios de diseño OO | Guía Jorge S4C2 (Eiffel DbC, CQS) | require/ensure/invariant | Eiffel | quiz | ⚠️ secundaria |
+| 5.2, 5.4, 5.7, 5.9–5.10 resto | **pendiente** transcripciones clase | — | — | — | ❌ |
 
 ## Problemas transversales
 

@@ -4,6 +4,8 @@ Una carpeta por clase vista en el curso. Es la **puerta de entrada** de toda
 materia nueva: primero cae aquí tal cual la pasa el estudiante (Notion, fotos,
 docx), después se integra a `docs/units/` y a la app.
 
+Estado del intake Exam 2: ver [`../exam-2-intake.md`](../exam-2-intake.md).
+
 ## Cómo agregar una clase
 
 1. Copia `_plantilla.md` a `YYYY-MM-DD-tema-corto.md`
@@ -21,5 +23,5 @@ docx), después se integra a `docs/units/` y a la app.
   se transcribe e interpreta.
 - Cada bloque teórico cita su `Fuente:` (ver `docs/README.md`, convenciones
   de fidelidad).
-- Todo lo de este semestre es **I Parcial** (U1–U4). El II Parcial (U5–U6)
-  aún no entra; cuando entre, se documenta igual aquí.
+- **I Parcial:** U1–U4. **II Parcial (Exam 2):** completar U4 (corte/fail,
+  unificación profunda) + abrir U5 OO. U6 cuando entre.

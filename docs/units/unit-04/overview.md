@@ -13,16 +13,21 @@
 - Noción de variable lógica (existencia previa al tipo) y de dominio (individuos que hacen verdadero un predicado); FBF = fórmulas bien formadas (solo sigla expandida, sin definición formal en las fuentes).
 - Tres problemas transversales para comparar paradigmas: catenaria, tres amigas, raw/ascii.
 
-## 2. Qué NO cubren las fuentes (honestidad documental)
+## 2. Qué cubre además Guía Jorge (fuente secundaria)
 
-> **Fuente:** verificación negativa contra las tres fuentes (lo que sigue no aparece en ninguna).
+> **Fuente:** `Guía Jorge/Semana_4_Clase_1.md` (Horn/SLD) + `Guía Jorge/Semana_4_Clase_2.md` (Tres Amigas en Prolog, backtracking → `false`).
 
-- [VACÍO: sin fuente] Sintaxis concreta de Prolog (cómo se escribe un hecho, una regla, una consulta en código real).
-- [VACÍO: sin fuente] Ejemplos de unificación paso a paso, de backtracking y orden de búsqueda, de dominios/datos compuestos/listas en Prolog.
-- [VACÍO: sin fuente] Ejemplos de uso del corte (`!`) y de `fail`.
-- Por regla de esta documentación: **todo lo faltante va a `exercises/review` como [VACÍO: sin fuente] o a la lista de verificación; no se inventa sintaxis Prolog.**
+- Sintaxis Prolog del acertijo Tres Amigas: estructura `amiga/3`, listas de dominio, `permutation/2`, `\=`, `member/2`, `\+`.
+- Noción operativa de unificación por ligadura en restricciones + backtracking al agotar ramas.
+- Cláusulas de Horn y resolución SLD (resumen de la guía; marcado como simplificación).
 
-## 3. Mapa de archivos de la unidad
+## 3. Qué sigue vacío (honestidad documental)
+
+- [VACÍO: sin fuente] Algoritmo formal de unificación (occur-check, MGU) más allá del ejemplo Tres Amigas.
+- [VACÍO: sin fuente] Corte (`!`) y `fail` — no aparecen en slides, Notion, .docx ni Guía Jorge.
+- Pendiente de transcripciones Exam 2: ver `docs/exam-2-intake.md`.
+
+## 4. Mapa de archivos de la unidad
 
 | Archivo | Contenido |
 |---|---|
@@ -33,21 +38,21 @@
 | `exercises.md` | 12 ejercicios (objetivo + dificultad + solución donde hay fuente; [VACÍO] donde no) |
 | `review.md` | Resumen + errores frecuentes + 8 preguntas de autoevaluación |
 
-## 4. Temas U4 vs. respaldo en fuentes
+## 5. Temas U4 vs. respaldo en fuentes
 
-> **Fuente:** lista de temas pedida por el usuario, contrastada con las tres fuentes.
+> **Fuente:** lista de temas del programa, contrastada con slides/.docx/Notion + Guía Jorge.
 
 | Tema pedido | Respaldo |
 |---|---|
-| Relaciones vs. funciones | Parcial: IMG3 dice que las funciones se describen mediante sentencias en CP1 [transcrito de imagen, por verificar]. [VACÍO: sin fuente] para formalización relacional en Prolog. |
-| Hechos y consultas | Solo noción general («sentencias que se demuestran», [Notion] + `.docx` P2). [VACÍO: sin fuente] para sintaxis. |
-| CP1 y FBF | Sigla FBF expandida en `.docx` P4; capacidad descriptiva de CP1 en IMG2–IMG3. [VACÍO: sin fuente] para gramática formal de FBF. |
-| Dominios, datos compuestos y listas | Solo noción de dominio en `.docx` P3. [VACÍO: sin fuente] para compuestos/listas. |
-| Unificación | Solo mención como parte de resolución en IMG7. [VACÍO: sin fuente] para algoritmo paso a paso. |
-| Backtracking y orden | [VACÍO: sin fuente] total. |
+| Relaciones vs. funciones | Parcial: IMG3 (funciones vía sentencias en CP1). Formalización relacional profunda: pendiente clase. |
+| Hechos y consultas | Noción general (Notion/.docx) + ejemplo Prolog Tres Amigas [Guía Jorge S4C2]. |
+| CP1 y FBF | IMG2–IMG3 + `.docx` P4. Gramática formal de FBF: [VACÍO]. |
+| Dominios, datos compuestos y listas | Noción `.docx` P3 + listas/dominios en Tres Amigas [Guía Jorge S4C2]. |
+| Unificación | IMG7 (mención) + ligaduras en Tres Amigas [Guía Jorge]. Algoritmo formal MGU: [VACÍO]. |
+| Backtracking y orden | Agotamiento → `false` [Guía Jorge S4C2]. Orden de cláusulas detallado: parcial. |
 | Corte (`!`) y `fail` | [VACÍO: sin fuente] total. |
 
-## 5. Advertencias de verificación
+## 6. Advertencias de verificación
 
 > **Fuente:** marcas de las propias transcripciones + criterio del redactor.
 

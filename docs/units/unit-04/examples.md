@@ -47,8 +47,47 @@
 - Ejemplo estructural mínimo (sin código, sin conectivas formales tomadas de fuera): de las premisas «toda ingeniera del grupo es López» y «López es ingeniera» se concluye por instanciación que una individua dada es ingeniera si es López. [Explicación pedagógica — elaboración propia]: ilustra el movimiento premisa→conclusión sin pretender ser una derivación en Copi.
 - [VACÍO: sin fuente] Derivación completa etiquetada con reglas de Copi, prueba por resolución, traza de unificación o traza de backtracking: ninguna fuente trae una.
 
-## E6. Lo que NO se ejemplifica (inventario honesto)
+## E6. Matriz final Tres Amigas (asignación)
 
-> **Fuente:** verificación negativa contra las tres fuentes.
+> **Fuente:** Guía Jorge S4C2.
 
-- [VACÍO: sin fuente] Hechos y consultas en sintaxis Prolog; reglas; listas y compuestos; unificación paso a paso; orden de búsqueda y backtracking; corte (`!`); `fail`. Estos temas aparecen solo como nombres en la lista de temas U4, sin material en las fuentes, por lo que no tienen ejemplo aquí y se tratan como ejercicios de inventario en `exercises.md`.
+| Nombre | Apellido | Profesión |
+|---|---|---|
+| Beatriz | López | Ingeniera |
+| María | Méndez | Actriz |
+| Alicia | García | Maestra |
+
+## E7. Tres Amigas en Prolog (dominios, unificación, backtracking)
+
+> **Fuente:** Guía Jorge S4C2 (código proyectado / modelado en la guía).
+
+```prolog
+resolver(Amigas) :-
+    Amigas = [
+        amiga(beatriz, A1, P1),
+        amiga(maria,   A2, P2),
+        amiga(alicia,  A3, P3)
+    ],
+    Apellidos = [garcia, lopez, mendez],
+    permutation(Apellidos, [A1, A2, A3]),
+    Profesiones = [ingeniera, actriz, maestra],
+    permutation(Profesiones, [P1, P2, P3]),
+    A1 \= garcia,
+    member(amiga(_, lopez, ingeniera), Amigas),
+    member(amiga(maria, _, actriz), Amigas),
+    \+ member(amiga(_, mendez, maestra), Amigas).
+
+% ?- resolver(Res).
+% Res = [amiga(beatriz, lopez, ingeniera),
+%        amiga(maria, mendez, actriz),
+%        amiga(alicia, garcia, maestra)].
+```
+
+- **Dominios/listas:** `Apellidos` y `Profesiones` como listas; `permutation` asigna valores a variables.
+- **Unificación:** `member(amiga(_, lopez, ingeniera), Amigas)` liga la amiga cuyo apellido es López con profesión ingeniera.
+- **Backtracking:** con una restricción contradictoria extra (p. ej. «Beatriz es maestra»), se agotan las ramas y el motor responde `false`.
+
+## E8. Lo que NO se ejemplifica aún
+
+- [VACÍO: sin fuente] Corte (`!`) y `fail`.
+- [VACÍO: sin fuente] Traza formal MGU / occur-check (más allá del ejemplo anterior).

@@ -1,12 +1,12 @@
 # Plataforma de estudio — IC-4700 Lenguajes de Programación
 
-Base documental y aplicación web interactiva para el I Parcial.
+Base documental y aplicación web interactiva para IC-4700 (I Parcial + scaffold Exam 2).
 
 ## Alcance
 
-Unidades cubiertas: **U1 Fundamentos**, **U2 Imperativo (COBOL, Pascal, C)**,
-**U3 Funcional (Scheme + Haskell)**, **U4 Lógico (Prolog)**. U5 (OO) y U6
-(avanzados) quedan fuera del alcance de esta entrega.
+Unidades: **U1 Fundamentos**, **U2 Imperativo**, **U3 Funcional**,
+**U4 Lógico** (parcial: falta corte/fail), **U5 OO** (scaffold con Guía Jorge).
+U6 avanzados: fuera de alcance inmediato. Intake: `exam-2-intake.md`.
 
 ## Estructura
 
@@ -22,6 +22,8 @@ docs/
   units/unit-02/           ← U2 imperativo
   units/unit-03/           ← U3 funcional
   units/unit-04/           ← U4 lógico
+  units/unit-05/           ← U5 OO (scaffold Exam 2)
+  exam-2-intake.md         ← espera de transcripciones Exam 2
   transcripciones/         ← transcripciones fieles (u0 cuaderno, u1, u3-a, u3-b, u4)
   assets/                  ← imágenes extraídas de los .docx + cuaderno p1-p2
   references/

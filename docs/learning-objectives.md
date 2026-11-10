@@ -41,4 +41,14 @@
 4. Explicar el sistema de Copi y por qué es poco práctico (NP).
 5. Comparar modus ponens vs. resolución con unificación.
 6. Contrastar variable lógica vs. variable imperativa.
-7. [VACÍO] Sintaxis Prolog, unificación paso a paso, backtracking, corte y fail.
+7. Modelar dominios con listas y compuestos (`amiga/3`) como en Tres Amigas [Guía Jorge].
+8. Explicar unificación operativa y backtracking con el ejemplo Tres Amigas.
+9. [VACÍO] Corte (`!`) y `fail` — sin fuente aún (Exam 2).
+
+## U5 — Orientado a objetos (scaffold Exam 2)
+
+1. Explicar objeto + mensaje como unidad de abstracción [Guía Jorge S4C1].
+2. Contrastar Simula (clases/herencia) vs Smalltalk (todo es objeto, mensajes) [Guía Jorge].
+3. Describir herencia, polimorfismo e interfaces (Java) a nivel de diseño [Guía Jorge].
+4. Enunciar Diseño por Contrato (Eiffel: require/ensure/invariant) [Guía Jorge S4C2].
+5. [VACÍO] Detalle de clase (expresiones, colecciones, bloques en cascada, estudio Java profundo) — pendiente transcripciones.

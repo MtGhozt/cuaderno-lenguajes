@@ -49,11 +49,14 @@ Un lenguaje implementa el paradigma lógico si simultáneamente:
 
 ## C6. Dominio: individuos para los que el predicado es verdadero
 
-> **Fuente:** `.docx` P3 (última oración).
+> **Fuente:** `.docx` P3 (última oración) + Guía Jorge S4C2 (Tres Amigas).
 
 - «Son los individuos para los cuales un cierto predicado es verdadero, pero pueden ser de conjuntos muy distintos para los cuales sus individuos cumplen el predicado.»
-- [Explicación pedagógica — elaboración propia] Léase «dominio» como el universo de discurso del predicado en cuestión, heterogéneo por naturaleza. No hay más detalle en fuentes.
-- [VACÍO: sin fuente] Dominios declarados en Prolog, datos compuestos y listas: ausentes en las tres fuentes.
+- En Tres Amigas los dominios se materializan como **listas finitas** y se asignan con `permutation/2`:
+  - Nombres: `{beatriz, maria, alicia}` (fijos en la estructura `amiga/3`).
+  - Apellidos: `[garcia, lopez, mendez]`.
+  - Profesiones: `[ingeniera, actriz, maestra]`.
+- El compuesto `amiga(Nombre, Apellido, Profesion)` es el dato estructurado del ejemplo [Guía Jorge S4C2].
 
 ## C7. Demostrar = partir de premisas y aplicar reglas de inferencia
 
@@ -72,7 +75,17 @@ Un lenguaje implementa el paradigma lógico si simultáneamente:
   - Sistemas basados en modus ponens: dos operadores y una sola regla (MP).
   - Cálculo de cláusulas: sin operadores y una sola regla, resolución (con unificación).
 - «Con restricciones adicionales, los algoritmos de manejo de estos sistemas son de tipo P» [POR-VERIFICAR].
-- [VACÍO: sin fuente] Algoritmo de unificación paso a paso, forma clausal, resolución aplicada, backtracking, orden de cláusulas, corte (`!`), `fail`.
+
+## C8b. Unificación, backtracking y ejemplo Prolog [Guía Jorge]
+
+> **Fuente:** Guía Jorge S4C1 (Horn/SLD) + S4C2 (Tres Amigas + contradicción → `false`).
+
+- **Unificación operativa:** hacer encajar términos ligando variables (`member/2`, `\=`, estructura `amiga/3`).
+- **Backtracking:** si una conjunción falla, el motor retrocede y prueba otra permutación/rama; si agota todas, responde `false`.
+- **Cláusulas de Horn / SLD:** a lo sumo un literal positivo; búsqueda lineal con unificación y retroceso [Simplificación de la guía].
+- Código completo del ejemplo: ver `examples.md` E7.
+- [VACÍO: sin fuente] Corte (`!`) y `fail`.
+- [VACÍO: sin fuente] Algoritmo formal MGU / occur-check.
 
 ## C9. Límite de reconocibilidad (afirmación del .docx)
 

@@ -79,24 +79,24 @@
 
 ## Ej. 10 — FBF y dominios
 
-- **Fuente:** `.docx` P3–P4.
-- **Enunciado:** (a) Expandir FBF. (b) Definir dominio con la frase del .docx. (c) [VACÍO: sin fuente] Dar la gramática formal de FBF y declarar dominios/compuestos/listas en Prolog.
-- **Objetivo:** separar lo respaldado de lo faltante.
-- **Dificultad:** fácil para (a)(b); (c) no evaluable con estas fuentes.
-- **Solución:** (a) «formulas bien formadas». (b) «individuos para los cuales un predicado es verdadero…». (c) [VACÍO: sin fuente] — derivar a bibliografía/manual de Prolog.
+- **Fuente:** `.docx` P3–P4 + Guía Jorge S4C2.
+- **Enunciado:** (a) Expandir FBF. (b) Definir dominio con la frase del .docx. (c) Listar los dominios/listas del programa Tres Amigas y el compuesto `amiga/3`.
+- **Objetivo:** unir definición abstracta y materialización en Prolog.
+- **Dificultad:** fácil-media.
+- **Solución:** (a) «formulas bien formadas». (b) «individuos para los cuales un predicado es verdadero…». (c) apellidos `[garcia,lopez,mendez]`, profesiones `[ingeniera,actriz,maestra]`, estructura `amiga(Nombre,Apellido,Profesion)` (`examples.md` E7). Gramática formal de FBF: [VACÍO].
 
-## Ej. 11 — Unificación y resolución (noción, sin algoritmo) [VACÍO parcial]
+## Ej. 11 — Unificación y backtracking con Tres Amigas
 
-- **Fuente parcial:** `u4-logico.md` IMG7 (menciona «resolución (con unificación)») + [Notion].
-- **Enunciado:** Explicar en una frase el papel de la unificación dentro de la resolución; [VACÍO: sin fuente] ejecutar una unificación paso a paso o una refutación por resolución.
-- **Objetivo:** ubicar el término sin fingir dominio algorítmico.
-- **Dificultad:** media (noción fácil; algoritmo ausente).
-- **Solución:** solo la noción («la regla única del cálculo de cláusulas, asistida por unificación»). Todo ejemplo trabajado es [VACÍO: sin fuente].
+- **Fuente:** `u4-logico.md` IMG7 + Guía Jorge S4C2.
+- **Enunciado:** (a) Explicar el papel de la unificación en la resolución. (b) Señalar en el código Tres Amigas dónde se unifica (`member`, `\=`). (c) Qué responde Prolog si se agrega una restricción contradictoria.
+- **Objetivo:** pasar de la noción abstracta al ejemplo concreto.
+- **Dificultad:** media.
+- **Solución:** (a) regla única del cálculo de cláusulas asistida por unificación. (b) ver E7. (c) agota ramas → `false`. Algoritmo formal MGU: [VACÍO].
 
-## Ej. 12 — Inventario de huecos: hechos, consultas, backtracking, orden, corte y fail [VACÍO: sin fuente]
+## Ej. 12 — Huecos restantes: corte y fail [VACÍO: sin fuente]
 
-- **Fuente:** ninguna (verificación negativa contra `u4-logico.md`, `.docx` P1–P4 y [Notion]).
-- **Enunciado:** Para cada tema —hechos y consultas; backtracking y orden de búsqueda; corte (`!`); `fail`— (1) declarar que las fuentes no traen sintaxis ni ejemplos; (2) formular la pregunta que quedaría pendiente (p. ej. «¿cómo se poda la búsqueda con el corte?»); (3) no responderla inventando código.
-- **Objetivo:** blindar honestidad y generar agenda de estudio con el manual de Prolog.
-- **Dificultad:** meta (fácil de enunciar, imposible de resolver con estas fuentes).
-- **Solución:** [VACÍO: sin fuente] en los cuatro subtemas; llevar a `review.md` → verificación pendiente.
+- **Fuente:** ninguna (slides, Notion, .docx, Guía Jorge).
+- **Enunciado:** Declarar que corte (`!`) y `fail` no tienen fuente; formular las preguntas pendientes («¿cómo poda `!` la búsqueda?», «¿qué hace `fail` en una conjunción?») sin inventar código.
+- **Objetivo:** agenda Exam 2 / manual de Prolog.
+- **Dificultad:** meta.
+- **Solución:** [VACÍO: sin fuente]; ver `docs/exam-2-intake.md`.
