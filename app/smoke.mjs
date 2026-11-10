@@ -22,6 +22,24 @@ const $$ = s => [...document.querySelectorAll(s)];
 check('home h1', /Estudia el parcial/.test($('h1')?.textContent || ''));
 check('nav links>=10', $$('.nav a').length >= 10);
 
+location.hash = '#/exam2';
+dispatchEvent(new Event('hashchange'));
+check('exam2 home', /Paradigma lógico/i.test($('h1')?.textContent || ''));
+
+location.hash = '#/leccion/l5';
+dispatchEvent(new Event('hashchange'));
+check('leccion l5', /Robinson|cláusulas|Resoluci/i.test($('h1')?.textContent || ''));
+check('lab resolucion', !!$('#reslab') || !!$('.clause'));
+
+location.hash = '#/labs';
+dispatchEvent(new Event('hashchange'));
+check('labs clips', !!$('#clipslab') || /agenda/i.test($('#main')?.textContent || ''));
+check('labs oo', !!$('#oolab') || /Mensajes OO/i.test($('#main')?.textContent || ''));
+
+location.hash = '#/e2-practica';
+dispatchEvent(new Event('hashchange'));
+check('e2 practica >=20', $$('#qlist article').length >= 20);
+
 location.hash = '#/aula/u3';
 dispatchEvent(new Event('hashchange'));
 check('aula u3', /funcional/i.test($('h1')?.textContent || ''));
@@ -85,9 +103,13 @@ location.hash = '#/diagramas';
 dispatchEvent(new Event('hashchange'));
 check('diagramas 4 svg', $$('.main svg').length === 4);
 
+location.hash = '#/aula/u5';
+dispatchEvent(new Event('hashchange'));
+check('aula u5', /orient/i.test($('h1')?.textContent || ''));
+
 location.hash = '#/practica';
 dispatchEvent(new Event('hashchange'));
-check('practica total 55', $$('#qlist article').length === 65);
+check('practica total', $$('#qlist article').length === 73);
 // la mezcla visual debe variar entre dos visitas (data-i conserva el índice original)
 const orderOnce = $$('#qlist article').map(a => { const b = a.querySelector('button.opt'); return b ? b.dataset.i : '-'; }).join(',');
 dispatchEvent(new Event('hashchange'));
