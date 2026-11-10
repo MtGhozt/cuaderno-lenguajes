@@ -1,20 +1,20 @@
-# --- dependencias y temporales ---
+# Materia de curso en disco (no versionar)
+Ensayo/
+I Parcial/
+Tarea 1/
+Programa_IC-4700.md
+public_IC-4700*.pdf
+*.docx
+Apuntes*.pdf
+
+# Lock/workspace leftovers from agent root move
+web/
+web_NEW_BACKUP/
+web_LOCK_LEFTOVER/
+
+# Dependencias / sistema
 app/node_modules/
 *.log
 .vite/
-
-# --- sistema ---
 .DS_Store
 Thumbs.db
-
-# --- programa oficial: fuera del repo por decisión del dueño ---
-# (se quedan en disco, no se versionan)
-Programa_IC-4700.md
-public_IC-4700*.pdf
-
-# --- materia cruda I Parcial: fuera del repo por decisión del dueño ---
-# (se quedan en disco, no se versionan; lo valioso ya está curado en
-#  app/src/data/ + docs/units/ + Guía Jorge/)
-I Parcial/
-*.docx
-Apuntes*.pdf
